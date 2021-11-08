@@ -20,12 +20,12 @@ class Die {
   }
 }
 
-let genDieBtn = <HTMLDivElement>document.getElementById('roll-it');
+let genDieBtn = <HTMLButtonElement>document.getElementById('roll-it');
 genDieBtn.addEventListener('click', function () {
   new Die
 });
 
-let rerollBtn = <HTMLDivElement>document.getElementById('reroll-it');
+let rerollBtn = <HTMLButtonElement>document.getElementById('reroll-it');
 rerollBtn.addEventListener('click', function(){
   arr.forEach(dice => {
     dice.roll()
