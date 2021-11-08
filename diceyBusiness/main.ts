@@ -1,28 +1,31 @@
-let container = document.getElementById('die-container');
-let arr = [];
+let container = <HTMLDivElement>document.getElementById('die-container');
+let arr: Die[] = [];
+
 class Die {
+  div: HTMLDivElement;
+  value: number;
   constructor() {
     this.div = document.createElement('div');
     this.value = Math.floor(Math.random() * 6) + 1;
-    this.div.textContent = this.value;
+    this.div.textContent = this.value.toString();
     this.div.classList.add('dice');
     container.appendChild(this.div);
     this.roll();
     arr.push(this);
   }
+
   roll() {
     this.value = Math.floor(Math.random() * 6) + 1;
-    this.div.textContent = this.value;
+    this.div.textContent = this.value.toString();
   }
-  
 }
 
-let genDieBtn = document.getElementById('roll-it');
+let genDieBtn = <HTMLDivElement>document.getElementById('roll-it');
 genDieBtn.addEventListener('click', function () {
   new Die
 });
 
-let rerollBtn = document.getElementById('reroll-it');
+let rerollBtn = <HTMLDivElement>document.getElementById('reroll-it');
 rerollBtn.addEventListener('click', function(){
   arr.forEach(dice => {
     dice.roll()
